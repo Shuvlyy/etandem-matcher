@@ -21,6 +21,12 @@ def parse_args():
         default="etudiants_locaux_test.xlsx",
         help="Path to the Local Students Excel file",
     )
+    parser.add_argument(
+        "--topn",
+        type=int,
+        default=3,
+        help="Number of top matches to display",
+    )
     return parser.parse_args()
 
 
@@ -69,10 +75,10 @@ def main():
     )
 
     matcher = Matcher(list_internationals, list_locals)
-    matrice = matcher.build_score_matrix()
+    df_top_matches = matcher.get_top_matches(top_n=args.topn)
 
-    print("--- Score Matrix ---")
-    print(matrice)
+    print("\n--- Results ---")
+    print(df_top_matches.to_string(index=False))
 
 
 if __name__ == "__main__":
