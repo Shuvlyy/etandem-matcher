@@ -2,6 +2,7 @@ import argparse
 
 import pandas as pd
 
+from exporter import export_results_to_excel
 from matcher import Matcher
 from student import Student
 
@@ -85,6 +86,8 @@ def main():
 
     print("\n--- Results ---")
     print(df_top_matches.to_string(index=False))
+
+    export_results_to_excel(df_top_matches, filename=args.output)
 
 
 if __name__ == "__main__":
