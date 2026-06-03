@@ -27,6 +27,12 @@ def parse_args():
         default=3,
         help="Number of top matches to display",
     )
+    parser.add_argument(
+        "--output",
+        type=str,
+        default="resultats.xlsx",
+        help="Output Excel file name",
+    )
     return parser.parse_args()
 
 
