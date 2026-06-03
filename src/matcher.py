@@ -65,16 +65,16 @@ class Matcher:
 
                 matches_for_this_student.append(
                     {
-                        "International (A)": inter_student.name,
-                        "Match Proposé (B)": local_student.name,
-                        "Compatibilité": f"{match_info.percentage} %",
-                        "Score Brut": match_info.score,
-                        "Passions Communes": match_info.common_interests,
+                        "International Student (A)": inter_student.name,
+                        "Proposed Match (B)": local_student.name,
+                        "Compatibility": f"{match_info.percentage} %",
+                        "Raw Score": match_info.score,
+                        "Common Interests": match_info.common_interests,
                     }
                 )
 
             # keeping only first top_n matches
-            matches_for_this_student.sort(key=lambda x: x["Score Brut"], reverse=True)
+            matches_for_this_student.sort(key=lambda x: x["Raw Score"], reverse=True)
             results.extend(matches_for_this_student[:top_n])
 
         return pd.DataFrame(results)
