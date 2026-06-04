@@ -1,4 +1,5 @@
 import re
+import unicodedata
 
 import pandas as pd
 
@@ -22,11 +23,17 @@ class Student:
         """
         if pd.isna(text):
             return set()
+
         text = str(text).lower()
+        text = "".join(
+            c
+            for c in unicodedata.normalize("NFD", text)
+            if unicodedata.category(c) != "Mn"
+        )
         mots = re.findall(
-            r"[a-zàâçéèêëîïôûùüÿñæœ]{3,}", text
-        )  #                         ^ we only keep > 3 chars to filter noise
-        #                              (useless words like "et", "ou", "de"...)
+            r"[a-z]{3,}", text
+        )  #        ^ we only keep > 3 chars to filter noise
+        #             (useless words like "et", "ou", "de"...)
         return set(mots)
 
     def __repr__(self):
