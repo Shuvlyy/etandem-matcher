@@ -1,6 +1,7 @@
 import openpyxl
 import pandas as pd
 from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.utils import get_column_letter
 
 
 def export_results_to_excel(df: pd.DataFrame, filename: str = "resultats.xlsx"):
@@ -11,6 +12,7 @@ def export_results_to_excel(df: pd.DataFrame, filename: str = "resultats.xlsx"):
 
     wb = openpyxl.load_workbook(filename)
     ws = wb.active
+    assert ws is not None  # lil hack to make pyright happy lol
     ws.title = "Match Results"
 
     header_font = Font(bold=True, color="FFFFFF")
@@ -25,7 +27,7 @@ def export_results_to_excel(df: pd.DataFrame, filename: str = "resultats.xlsx"):
         cell.fill = header_fill
         cell.alignment = center_aligned_text
 
-        column_letter = openpyxl.utils.get_column_letter(col_num)
+        column_letter = get_column_letter(col_num)
         ws.column_dimensions[column_letter].width = 30
 
     for row_idx in range(2, len(df) + 2):
