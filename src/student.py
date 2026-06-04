@@ -43,3 +43,40 @@ class Student:
     def __repr__(self):
         type_etu = "Inter" if self.is_international else "Local"
         return f"<Student: {self.name} ({type_etu})>"
+
+
+def load_students(file_path: str, is_international: bool) -> list[Student]:
+    df = pd.read_excel(file_path)
+
+    if is_international:
+        col_map = {
+            "email": "Adresse e-mail universitaire / University email address:",
+            "name": "Prénom / First name :",
+            "age": "Age (numbers only):",
+            "sector": "Filière d'études/ Field of study:",
+            "interests": "Quels sont vos centres d'intérêt ? / What are your hobbies ?",
+            "target_language_level": "Niveau de français / Level of French :",
+        }
+    else:
+        col_map = {
+            "email": "Email utilisateur",
+            "name": "Prénom utilisateur",
+            "age": "Age : ",
+            "sector": "Composante / UFR :",
+            "interests": "Centres d'intérêt :",
+            "target_language_level": "Votre niveau en anglais :",
+        }
+
+    students = []
+    for _, row in df.iterrows():
+        standardized_row = {
+            "email": row[col_map["email"]],
+            "name": row[col_map["name"]],
+            "age": row[col_map["age"]],
+            "sector": row[col_map["sector"]],
+            "interests": row[col_map["interests"]],
+            "target_language_level": row[col_map["target_language_level"]],
+        }
+        students.append(Student(standardized_row, is_international=is_international))
+
+    return students
