@@ -1,16 +1,23 @@
 import pandas as pd
 
-from student import Student
+from student import Student, level_dict
 
 
 class MatchResults:
-    def __init__(self, score: int, percentage: float, common_interests: str):
+    def __init__(
+        self,
+        score: int,
+        percentage: float,
+        common_interests: str,
+        language_levels: tuple[str, str],
+    ):
         self.score = score
         self.percentage = percentage
         self.common_interests = common_interests
+        self.language_levels = language_levels
 
     def __repr__(self):
-        return f"MatchResults(score={self.score}, percentage={self.percentage}, common_interests={self.common_interests})"
+        return f"MatchResults(score={self.score}, percentage={self.percentage}, common_interests={self.common_interests}, language_levels={self.language_levels})"
 
 
 class Matcher:
@@ -42,6 +49,21 @@ class Matcher:
         if student_a.sector.intersection(student_b.sector):
             score += 3
 
+        max_possible += 5
+        level_sum = level_dict.get(student_a.target_language_level, 2) + level_dict.get(
+            student_b.target_language_level, 2
+        )
+        BALANCED_SUM = 7
+        diff_from_ideal = abs(level_sum - BALANCED_SUM)
+
+        if diff_from_ideal == 0:
+            score += 5
+        elif diff_from_ideal == 1:
+            score += 3
+        elif diff_from_ideal == 2:
+            score += 1
+        # if diff >= 3 (like 2 beginners or 2 experts) no points
+
         if max_possible > 0:
             percentage = int((score / max_possible) * 100)
             percentage = min(100, percentage)  # clip
@@ -52,6 +74,10 @@ class Matcher:
             score=score,
             percentage=percentage,
             common_interests=", ".join(common_interests).title(),
+            language_levels=(
+                student_a.target_language_level,
+                student_b.target_language_level,
+            ),
         )
 
     def get_top_matches(self, top_n: int = 3) -> pd.DataFrame:
@@ -70,6 +96,7 @@ class Matcher:
                         "Compatibility": f"{match_info.percentage} %",
                         "Raw Score": match_info.score,
                         "Common Interests": match_info.common_interests,
+                        "Language Levels": match_info.language_levels,
                     }
                 )
 

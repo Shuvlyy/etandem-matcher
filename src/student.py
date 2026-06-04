@@ -3,6 +3,8 @@ import unicodedata
 
 import pandas as pd
 
+level_dict = {"A1": 1, "A2": 2, "B1": 3, "B2": 4, "C1": 5, "C2": 6}
+
 
 class Student:
     def __init__(self, row, is_international: bool):
@@ -16,6 +18,8 @@ class Student:
 
         self.interests = self._extract_keywords(self.raw_interests)
         self.sector = self._extract_keywords(self.raw_sector)
+
+        self.target_language_level = row["target_language_level"]  # level_dict.get(, 2)
 
     def _extract_keywords(self, text: str) -> set:
         """

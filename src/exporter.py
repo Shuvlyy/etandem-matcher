@@ -5,7 +5,7 @@ from openpyxl.styles import Alignment, Font, PatternFill
 
 def export_results_to_excel(df: pd.DataFrame, filename: str = "resultats.xlsx"):
     """Exports results to a new Excel file."""
-    print(f"\Exporting results to {filename}...")
+    print(f"Exporting results to {filename}...")
 
     df.to_excel(filename, index=False, engine="openpyxl")
 
