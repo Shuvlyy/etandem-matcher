@@ -1,5 +1,6 @@
 import os
 import tkinter as tk
+import webbrowser
 from tkinter import filedialog, messagebox, ttk
 
 import customtkinter as ctk
@@ -62,7 +63,7 @@ class ResultsViewer(ctk.CTkToplevel):
             text="Export to Excel",
             command=self.export_data,
             fg_color="#27AE60",
-            hover_color="#2ECC71",
+            hover_color="#2ECC67",
         )
         self.btn_export.pack(pady=15)
 
@@ -138,6 +139,19 @@ class App(ctk.CTk):
         )
         self.btn_run.pack(pady=20)
 
+        # help button
+        self.btn_help = ctk.CTkButton(
+            self,
+            text="?",
+            width=30,
+            height=30,
+            fg_color="transparent",
+            border_width=2,
+            text_color=("gray10", "#DCE4EE"),
+            command=self.open_guide,
+        )
+        self.btn_help.place(relx=0.95, rely=0.95, anchor="se")
+
     def load_inter(self):
         path = filedialog.askopenfilename(filetypes=[("Excel", "*.xlsx *.xls")])
         if path:
@@ -152,6 +166,12 @@ class App(ctk.CTk):
 
     def update_slider(self, val):
         self.slider_lbl.configure(text=f"Matches per student: {int(val)}")
+
+    def open_guide(self):
+        try:
+            webbrowser.open("assets/guide.pdf")
+        except Exception as e:
+            messagebox.showerror(":(", f"Something went wrong: {str(e)}")
 
     def run_matcher(self):
         # basic checks
