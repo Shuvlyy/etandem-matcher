@@ -119,13 +119,13 @@ class App(ctk.CTk):
         self.lbl_local.pack()
 
         # matches slider
-        self.slider_lbl = ctk.CTkLabel(self, text="Matches per student: 3")
+        self.slider_lbl = ctk.CTkLabel(self, text="Matches per student: 1")
         self.slider_lbl.pack(pady=(20, 0))
 
         self.slider = ctk.CTkSlider(
             self, from_=1, to=5, number_of_steps=4, command=self.update_slider
         )
-        self.slider.set(3)
+        self.slider.set(1)
         self.slider.pack(pady=10)
 
         # run button
