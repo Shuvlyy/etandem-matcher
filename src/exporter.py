@@ -21,7 +21,7 @@ def export_results_to_excel(df: pd.DataFrame, filename: str = "resultats.xlsx"):
     )
     center_aligned_text = Alignment(horizontal="center", vertical="center")
 
-    for col_num, column_title in enumerate(df.columns, 1):
+    for col_num, _ in enumerate(df.columns, 1):
         cell = ws.cell(row=1, column=col_num)
         cell.font = header_font
         cell.fill = header_fill
