@@ -14,7 +14,7 @@ Double-cliquez sur le fichier `E-Tandem Matcher.exe` pour lancer l'application.
 \
  Une fois les fichiers choisis, vous devriez voir leur nom s'afficher en blanc en dessous des boutons.
 
-<img src="assets/screens/File selection.jpg" width="480">
+<img src="assets/screens/file-selection.png" width="480">
 
 3. Choisir le nombre de propositions\
 Utilisez le curseur **"Matches per student"** pour choisir combien de partenaires potentiels le logiciel doit vous proposer pour chaque étudiant international.
@@ -41,7 +41,7 @@ Les propositions sont ensuite triées par ordre décroissant de score, avec les 
 
 ## Un problème?
 
-- L'application affiche ***"Please select both Excel files first"*** : Vous avez oublié de charger l'un des deux fichiers ou vous avez cliqué trop vite. Assurez-vous que vous avez bien sélectionné les deux fichiers et qu'ils apparaissent en blanc en dessous des boutons avant de lancer le calcul.
+- L'application affiche ***"Please select both Excel files first"*** : Vous avez oublié de charger l'un des deux fichiers ou vous avez cliqué trop vite. Assurez-vous que vous avez bien sélectionné les deux fichiers et qu'ils apparaîssent en blanc en dessous des boutons avant de lancer le calcul.
 - L'application affiche ***"Something went wrong"*** : Vérifiez que les fichiers que vous avez sélectionnés sont bien des vrais fichiers Excel (`.xlsx`) et que la structure des ces fichiers correspond bien à celle des formulaires.
 - Mon antivirus bloque le lancement du logiciel : Étant donné qu'il s'agit d'un petit logiciel interne, certains antivirus peuvent bloquer son lancement. Cliquez simplement sur "Informations complémentaires" puis sur "Exécuter quand même" pour le lancer.
 
