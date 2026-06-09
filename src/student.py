@@ -9,6 +9,7 @@ level_dict = {"A1": 1, "A2": 2, "B1": 3, "B2": 4, "C1": 5, "C2": 6}
 class Student:
     def __init__(self, row, is_international: bool):
         self.email = row["email"]
+        self.surname = row["surname"]
         self.name = row["name"]
         self.age = row["age"]
         self.is_international = is_international
@@ -40,10 +41,6 @@ class Student:
         #             (useless words like "et", "ou", "de"...)
         return set(mots)
 
-    def __repr__(self):
-        type_etu = "Inter" if self.is_international else "Local"
-        return f"<Student: {self.name} ({type_etu})>"
-
 
 def load_students(file_path: str, is_international: bool) -> list[Student]:
     df = pd.read_excel(file_path)
@@ -51,7 +48,8 @@ def load_students(file_path: str, is_international: bool) -> list[Student]:
     if is_international:
         col_map = {
             "email": "Adresse e-mail universitaire / University email address:",
-            "name": "Prénom / First name :",
+            "surname": "Prénom / First name :",
+            "name": "NOM DE FAMILLE / LAST NAME:",
             "age": "Age (numbers only):",
             "sector": "Filière d'études/ Field of study:",
             "interests": "Quels sont vos centres d'intérêt ? / What are your hobbies ?",
@@ -60,7 +58,8 @@ def load_students(file_path: str, is_international: bool) -> list[Student]:
     else:
         col_map = {
             "email": "Email utilisateur",
-            "name": "Prénom utilisateur",
+            "surname": "Prénom utilisateur",
+            "name": "Nom utilisateur",
             "age": "Age : ",
             "sector": "Composante / UFR :",
             "interests": "Centres d'intérêt :",
@@ -71,12 +70,14 @@ def load_students(file_path: str, is_international: bool) -> list[Student]:
     for _, row in df.iterrows():
         standardized_row = {
             "email": row[col_map["email"]],
+            "surname": row[col_map["surname"]],
             "name": row[col_map["name"]],
             "age": row[col_map["age"]],
             "sector": row[col_map["sector"]],
             "interests": row[col_map["interests"]],
             "target_language_level": row[col_map["target_language_level"]],
         }
+        print(standardized_row["surname"])
         students.append(Student(standardized_row, is_international=is_international))
 
     return students

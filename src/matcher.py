@@ -16,12 +16,9 @@ class MatchResults:
         self.common_interests = common_interests
         self.language_levels = language_levels
 
-    def __repr__(self):
-        return f"MatchResults(score={self.score}, percentage={self.percentage}, common_interests={self.common_interests}, language_levels={self.language_levels})"
-
 
 class Matcher:
-    def __init__(self, internationals: list, locals: list):
+    def __init__(self, internationals: list[Student], locals: list[Student]):
         self.internationals = internationals
         self.locals = locals
 
@@ -91,8 +88,8 @@ class Matcher:
 
                 matches_for_this_student.append(
                     {
-                        "International Student (A)": inter_student.name,
-                        "Proposed Match (B)": local_student.name,
+                        "International Student (A)": f"{inter_student.surname} {inter_student.name}",
+                        "Proposed Match (B)": f"{local_student.surname} {local_student.name}",
                         "Email (A)": inter_student.email,
                         "Email (B)": local_student.email,
                         "Compatibility": f"{match_info.percentage}%",
