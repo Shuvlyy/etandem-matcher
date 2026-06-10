@@ -13,6 +13,8 @@ class Student:
         self.name = row["name"]
         self.age = row["age"]
         self.is_international = is_international
+        self.university = row["university"]
+        self.specific_needs = row["specific_needs"]
 
         self.raw_sector = row["sector"]
         self.raw_interests = row["interests"]
@@ -54,6 +56,8 @@ def load_students(file_path: str, is_international: bool) -> list[Student]:
             "sector": "Filière d'études/ Field of study:",
             "interests": "Quels sont vos centres d'intérêt ? / What are your hobbies ?",
             "target_language_level": "Niveau de français / Level of French :",
+            "specific_needs": "Demandes spécifiques / Special requests:",
+            "university": "De quelle université venez-vous ? / Which university are you from?",
         }
     else:
         col_map = {
@@ -64,6 +68,7 @@ def load_students(file_path: str, is_international: bool) -> list[Student]:
             "sector": "Composante / UFR :",
             "interests": "Centres d'intérêt :",
             "target_language_level": "Votre niveau en anglais :",
+            "specific_needs": "Demandes spécifiques :",
         }
 
     students = []
@@ -76,6 +81,10 @@ def load_students(file_path: str, is_international: bool) -> list[Student]:
             "sector": row[col_map["sector"]],
             "interests": row[col_map["interests"]],
             "target_language_level": row[col_map["target_language_level"]],
+            "university": row[col_map["university"]]
+            if is_international
+            else "Université de Nantes",
+            "specific_needs": row[col_map["specific_needs"]],
         }
         print(standardized_row["surname"])
         students.append(Student(standardized_row, is_international=is_international))

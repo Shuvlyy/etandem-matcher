@@ -89,13 +89,16 @@ class Matcher:
                 matches_for_this_student.append(
                     {
                         "International Student (A)": f"{inter_student.surname} {inter_student.name}",
-                        "Proposed Match (B)": f"{local_student.surname} {local_student.name}",
                         "Email (A)": inter_student.email,
-                        "Email (B)": local_student.email,
-                        "Compatibility": f"{match_info.percentage}%",
-                        "Common Interests": match_info.common_interests,
+                        "University (A)": inter_student.university,
                         "Language Level (A)": match_info.language_levels[0],
+                        "Specific needs (A)": inter_student.specific_needs,
+                        "Proposed Match (B)": f"{local_student.surname} {local_student.name}",
+                        "Email (B)": local_student.email,
                         "Language Level (B)": match_info.language_levels[1],
+                        "Specific needs (B)": local_student.specific_needs,
+                        "Common Interests": match_info.common_interests,
+                        "Compatibility": f"{match_info.percentage}%",
                     }
                 )
 
