@@ -48,3 +48,5 @@ Les propositions sont ensuite triées par ordre décroissant de score, avec les 
 <img src="assets/screens/antivirus.jpg" width="620px">
 
 Si vous avez besoin d'aide, vous pouvez me joindre à cette adresse e-mail : [lysandre.boursette@epitech.eu](mailto:lysandre.boursette@epitech.eu).
+
+<img src="assets/logo_nantes_univ.png" width="256px">
