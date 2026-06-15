@@ -4,8 +4,7 @@ import src.app_info
 
 version_tuple = tuple(map(int, src.app_info.APP_VERSION.split("."))) + (0,)
 
-win_verinfo = f"""
-VSVersionInfo(
+win_verinfo = f"""VSVersionInfo(
   ffi=FixedFileInfo(
     filevers={version_tuple},
     prodvers={version_tuple},
@@ -22,12 +21,11 @@ VSVersionInfo(
         u'040904b0',
         [StringStruct(u'FileVersion', u'{src.app_info.APP_VERSION}'),
          StringStruct(u'ProductVersion', u'{src.app_info.APP_VERSION}'),
-         StringStruct(u'ProductName', u'E-Tandem Matcher')])
+         StringStruct(u'ProductName', u'{src.app_info.APP_NAME}')])
       ])
     ])
   ]
-)
-"""
+)"""
 
 with open("file_version_info.txt", "w") as f:
     f.write(win_verinfo)
