@@ -5,10 +5,10 @@ from tkinter import filedialog, messagebox, ttk
 
 import customtkinter as ctk
 
+import app_info
 from exporter import export_results_to_excel
 from matcher import Matcher
 from student import load_students
-from version import VERSION
 
 ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("blue")
@@ -92,7 +92,7 @@ class App(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("E-Tandem Matcher")
+        self.title(app_info.APP_NAME)
         self.geometry("500x420")
 
         self.path_inter = None
@@ -100,7 +100,7 @@ class App(ctk.CTk):
 
         # main title
         self.title_lbl = ctk.CTkLabel(
-            self, text="E-Tandem Matcher", font=ctk.CTkFont(size=20, weight="bold")
+            self, text=app_info.APP_NAME, font=ctk.CTkFont(size=20, weight="bold")
         )
         self.title_lbl.pack(pady=20)
 
@@ -154,7 +154,10 @@ class App(ctk.CTk):
         self.btn_help.place(relx=0.95, rely=0.95, anchor="se")
 
         self.version_lbl = ctk.CTkLabel(
-            self, text=f"v{VERSION}", text_color="gray", font=("Arial", 10)
+            self,
+            text=f"v{app_info.APP_VERSION}, {app_info.APP_COPYRIGHT}",
+            text_color="gray",
+            font=("Arial", 10),
         )
         self.version_lbl.place(relx=0.02, rely=0.99, anchor="sw")
 
