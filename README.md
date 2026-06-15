@@ -6,6 +6,8 @@ Voici le guide d'utilisation du nouvel outil de création de binômes dans le ca
 
 Téléchargez l'application depuis la [release la plus récente](https://github.com/Shuvlyy/etandem-matcher/releases/latest) et sélectionnez votre plateforme (Windows ou macOS).
 
+<img src="assets/screens/release.png" width="900">
+
 ## Utilisation
 
 1. Lancer l'application\
