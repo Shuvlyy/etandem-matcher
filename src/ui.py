@@ -170,7 +170,7 @@ class App(ctk.CTk):
     def open_guide(self):
         try:
             webbrowser.open(
-                "https://github.com/Shuvlyy/etandem-matcher/blob/master/assets/README.pdf"
+                "https://github.com/Shuvlyy/etandem-matcher/blob/master/README.md"
             )
         except Exception as e:
             messagebox.showerror(":(", f"Something went wrong: {str(e)}")
