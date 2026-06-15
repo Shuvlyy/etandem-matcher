@@ -1,3 +1,5 @@
+<img src="assets/logo.jpg" width="128">
+
 # E-Tandem Matcher
 
 Voici le guide d'utilisation du nouvel outil de création de binômes dans le cadre du programme E-Tandem de l'Université de Nantes. Il lit les réponses aux formulaires et calcule automatiquement les meilleures affinités entre les étudiants locaux et internationaux.
