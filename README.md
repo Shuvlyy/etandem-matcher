@@ -38,12 +38,12 @@ Pour sauvegarder les résultats sous forme de fichier Excel, cliquez simplement 
 ## Fonctionnement
 
 Pour faire court, le logiciel donne des points à chaque duo selon ces critères :
-- Les passions communes (le plus important) : +5 pts par passion commune
-- Le niveau de langue : Le logiciel associe les étudiants débutants avec des étudiants confirmés pour que l'échange soit équilibré et que personne ne soit bloqué (par exemple les A2 iront plus avec des C1).
-- La filière : +3 pts si les deux étudiants sont dans la même filière.
-- L'écart d'âge:
-  - <= 2 ans d'écart : +5 pts
-  - Entre 2 et 4 ans d'écart : +2 pts
+- __Les passions communes (le plus important) :__ +5 pts par passion commune
+- __Le niveau de langue :__ Le logiciel associe les étudiants débutants avec des étudiants confirmés pour que l'échange soit équilibré et que personne ne soit bloqué (par exemple les A2 iront plus avec des C1).
+- __La filière :__ +3 pts si les deux étudiants sont dans la même filière.
+- __L'écart d'âge :__
+  - ≤ 2 ans d'écart : +5 pts
+  - 2 à 4 ans d'écart : +2 pts
 
 Les propositions sont ensuite triées par ordre décroissant de score, avec les meilleures propositions en haut.
 
