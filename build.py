@@ -2,30 +2,10 @@ import subprocess
 
 import src.app_info
 
-version_tuple = tuple(map(int, src.app_info.APP_VERSION.split("."))) + (0,)
+app_ver = src.app_info.APP_VERSION.split(".")
+filevers = (int(app_ver[0]), int(app_ver[1]), 0, 0)
 
-win_verinfo = f"""VSVersionInfo(
-  ffi=FixedFileInfo(
-    filevers={version_tuple},
-    prodvers={version_tuple},
-    mask=0x3f,
-    flags=0x0,
-    OS=0x4,
-    fileType=0x1,
-    subtype=0x0,
-    date=(0, 0)
-  ),
-  kids=[
-    StringFileInfo([
-      StringTable(
-        u'040904b0',
-        [StringStruct(u'FileVersion', u'{src.app_info.APP_VERSION}'),
-         StringStruct(u'ProductVersion', u'{src.app_info.APP_VERSION}'),
-         StringStruct(u'ProductName', u'{src.app_info.APP_NAME}')])
-      ])
-    ])
-  ]
-)"""
+win_verinfo = f"""VSVersionInfo(ffi=FixedFileInfo(filevers={filevers},prodvers={filevers},mask=0x3f,flags=0x0,OS=0x4,fileType=0x1,subtype=0x0,date=(0,0)),kids=[StringFileInfo([StringTable('040904b0',[StringStruct('FileVersion','{src.app_info.APP_VERSION}'),StringStruct('ProductVersion','{src.app_info.APP_VERSION}'),StringStruct('ProductName','{src.app_info.APP_NAME}')])])])"""
 
 with open("file_version_info.txt", "w") as f:
     f.write(win_verinfo)
