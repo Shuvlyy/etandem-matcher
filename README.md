@@ -10,6 +10,22 @@ Téléchargez l'application depuis la [release la plus récente](https://github.
 
 <img src="assets/screens/release.png" width="900">
 
+## Compilation (développeurs uniquement)
+
+Pour compiler l'application, vous aurez besoin de [Python 3.14](https://www.python.org/downloads/) et de [`pip`](https://pip.pypa.io/en/stable/).
+
+1. Installez les dépendances :
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+2. Compilez l'application à l'aide du script `build.py` :
+   ```sh
+   python build.py
+   ```
+
+3. Le script va générer un fichier exécutable dans le dossier `dist`. Notez que le fichier généré est spécifique à votre plateforme (Windows ou macOS).
+
 ## Utilisation
 
 1. Lancer l'application\
