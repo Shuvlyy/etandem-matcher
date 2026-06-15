@@ -22,7 +22,7 @@ class Student:
         self.interests = self._extract_keywords(self.raw_interests)
         self.sector = self._extract_keywords(self.raw_sector)
 
-        self.target_language_level = row["target_language_level"]  # level_dict.get(, 2)
+        self.target_language_level = row["target_language_level"]
 
     def _extract_keywords(self, text: str) -> set:
         """
