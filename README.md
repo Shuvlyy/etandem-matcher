@@ -2,6 +2,10 @@
 
 Voici le guide d'utilisation du nouvel outil de création de binômes dans le cadre du programme E-Tandem de l'Université de Nantes. Il lit les réponses aux formulaires et calcule automatiquement les meilleures affinités entre les étudiants locaux et internationaux.
 
+## Installation
+
+Téléchargez l'application depuis la [release la plus récente](https://github.com/Shuvlyy/etandem-matcher/releases/latest) et sélectionnez votre plateforme (Windows ou macOS).
+
 ## Utilisation
 
 1. Lancer l'application\
