@@ -8,6 +8,7 @@ import customtkinter as ctk
 from exporter import export_results_to_excel
 from matcher import Matcher
 from student import load_students
+from version import VERSION
 
 ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("blue")
@@ -151,6 +152,11 @@ class App(ctk.CTk):
             command=self.open_guide,
         )
         self.btn_help.place(relx=0.95, rely=0.95, anchor="se")
+
+        self.version_lbl = ctk.CTkLabel(
+            self, text=f"v{VERSION}", text_color="gray", font=("Arial", 10)
+        )
+        self.version_lbl.place(relx=0.02, rely=0.99, anchor="sw")
 
     def load_inter(self):
         path = filedialog.askopenfilename(filetypes=[("Excel", "*.xlsx *.xls")])
