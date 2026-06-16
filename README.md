@@ -31,6 +31,16 @@ Pour compiler l'application, vous aurez besoin de [Python 3.14](https://www.pyth
 1. Lancer l'application\
 Double-cliquez sur le fichier `E-Tandem Matcher.exe` pour lancer l'application.
 
+> [!IMPORTANT]
+> Pour Windows: Si votre antivirus bloque le lancement du logiciel : Étant donné qu'il s'agit d'un petit logiciel interne, certains antivirus peuvent bloquer son lancement. Cliquez simplement sur "Informations complémentaires" puis sur "Exécuter quand même" pour le lancer.
+
+> <img src="assets/screens/antivirus.jpg" width="620px">
+
+> [!IMPORTANT]
+> Pour macOS: Si votre ordinateur refuse de lancer l'application : Pour les mêmes raisons que sur Windows, macOS peut bloquer l'accès à l'application. Autorisez l'accès à l'application dans les paramètres de sécurité de macOS comme montré sur la capture d'écran (vous devrez descendre en bas de la page pour voir le bouton ***"Ouvrir quand même"***).
+
+> <img src="assets/screens/macos_antivirus.jpg" width="620px">
+
 2. Insérer les fichiers Excel
 
  - Cliquez sur le bouton **"Select International students Excel"** et allez chercher le fichier des étudiants internationaux.
@@ -67,13 +77,6 @@ Les propositions sont ensuite triées par ordre décroissant de score, avec les 
 
 - L'application affiche ***"Please select both Excel files first"*** : Vous avez oublié de charger l'un des deux fichiers ou vous avez cliqué trop vite. Assurez-vous que vous avez bien sélectionné les deux fichiers et qu'ils apparaîssent en blanc en dessous des boutons avant de lancer le calcul.
 - L'application affiche ***"Something went wrong"*** : Vérifiez que les fichiers que vous avez sélectionnés sont bien des vrais fichiers Excel (`.xlsx`) et que la structure des ces fichiers correspond bien à celle des formulaires.
-- Mon antivirus bloque le lancement du logiciel : Étant donné qu'il s'agit d'un petit logiciel interne, certains antivirus peuvent bloquer son lancement. Cliquez simplement sur "Informations complémentaires" puis sur "Exécuter quand même" pour le lancer.
-
-<img src="assets/screens/antivirus.jpg" width="620px">
-
-- macOS refuse de lancer l'application : Pour les mêmes raisons que sur Windows, macOS peut bloquer l'accès à l'application. Autorisez l'accès à l'application dans les paramètres de sécurité de macOS comme montré sur la capture d'écran (vous devrez descendre en bas de la page pour voir le bouton ***"Ouvrir quand même"***).
-
-<img src="assets/screens/macos_antivirus.jpg" width="620px">
 
 Si vous avez besoin d'aide, vous pouvez me joindre à cette adresse e-mail : [lysandre.boursette@epitech.eu](mailto:lysandre.boursette@epitech.eu).
 
