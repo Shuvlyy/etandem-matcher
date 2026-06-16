@@ -28,8 +28,7 @@ Pour compiler l'application, vous aurez besoin de [Python 3.14](https://www.pyth
 
 ## Utilisation
 
-1. Lancer l'application\
-Double-cliquez sur le fichier `E-Tandem Matcher.exe` pour lancer l'application.
+1. Lancer l'application
 
 > [!IMPORTANT]
 > Pour Windows: Si votre antivirus bloque le lancement du logiciel : Étant donné qu'il s'agit d'un petit logiciel interne, certains antivirus peuvent bloquer son lancement. Cliquez simplement sur "Informations complémentaires" puis sur "Exécuter quand même" pour le lancer.
