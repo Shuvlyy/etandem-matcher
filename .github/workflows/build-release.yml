@@ -39,7 +39,8 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: |
           cd dist
-          zip -r E-Tandem.Matcher-macOS-arm64.app.zip *.app
+          APP_NAME=$(ls -d *.app | head -n 1)
+          ditto -c -k --keepParent "$APP_NAME" "E-Tandem.Matcher-macOS-arm64.app.zip"
 
       - name: Upload Windows executable to release
         if: matrix.os == 'windows-latest'
