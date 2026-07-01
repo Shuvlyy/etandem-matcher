@@ -198,10 +198,10 @@ class App(ctk.CTk):
         self.update()
 
         try:
-            internationals = load_students(self.path_inter, is_international=True)
-            locals_students = load_students(self.path_local, is_international=False)
+            inter_students = load_students(self.path_inter, is_international=True)
+            local_students = load_students(self.path_local, is_international=False)
 
-            matcher = Matcher(internationals, locals_students)
+            matcher = Matcher(inter_students, local_students)
             top_n = int(self.slider.get())
             results_df = matcher.get_top_matches(top_n=top_n)
 

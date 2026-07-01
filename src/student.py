@@ -48,7 +48,21 @@ def load_students(file_path: str, is_international: bool) -> list[Student]:
     if file_path.lower().endswith(".csv"):
         df = pd.read_csv(file_path, sep=None, engine="python")
     else:
-        df = pd.read_excel(file_path)
+        df = pd.read_excel(file_path, header=None)
+
+        header_i = 0
+        for i, (_, row) in enumerate(df.iterrows()):
+            row_str = str(row.values).lower()
+            if "email" in row_str or "nom" in row_str:
+                header_i = i
+                break
+
+        if header_i > 0:
+            df.columns = df.iloc[header_i]
+            df = df.iloc[header_i + 1 :].reset_index(drop=True)
+        else:
+            df.columns = df.iloc[0]
+            df = df.iloc[1:].reset_index(drop=True)
 
     df.columns = df.columns.str.strip()
 
@@ -91,7 +105,6 @@ def load_students(file_path: str, is_international: bool) -> list[Student]:
             else "Université de Nantes",
             "specific_needs": row[col_map["specific_needs"]],
         }
-        print(standardized_row["surname"])
         students.append(Student(standardized_row, is_international=is_international))
 
     return students
