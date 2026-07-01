@@ -27,4 +27,4 @@ plist_content = plist_content.replace("{{APP_NAME}}", src.app_info.APP_NAME)
 with open("Info.plist", "w") as f:
     f.write(plist_content)
 
-subprocess.run(["pyinstaller", "main.spec"])
+subprocess.run(["pyinstaller", "main.spec"], check=True)
