@@ -45,7 +45,12 @@ class Student:
 
 
 def load_students(file_path: str, is_international: bool) -> list[Student]:
-    df = pd.read_excel(file_path)
+    if file_path.lower().endswith(".csv"):
+        df = pd.read_csv(file_path, sep=None, engine="python")
+    else:
+        df = pd.read_excel(file_path)
+
+    df.columns = df.columns.str.strip()
 
     if is_international:
         col_map = {
@@ -64,7 +69,7 @@ def load_students(file_path: str, is_international: bool) -> list[Student]:
             "email": "Email utilisateur",
             "surname": "Prénom utilisateur",
             "name": "Nom utilisateur",
-            "age": "Age : ",
+            "age": "Age :",
             "sector": "Composante / UFR :",
             "interests": "Centres d'intérêt :",
             "target_language_level": "Votre niveau en anglais :",

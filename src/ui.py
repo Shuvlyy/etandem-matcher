@@ -162,13 +162,17 @@ class App(ctk.CTk):
         self.version_lbl.place(relx=0.02, rely=0.99, anchor="sw")
 
     def load_inter(self):
-        path = filedialog.askopenfilename(filetypes=[("Excel", "*.xlsx *.xls")])
+        path = filedialog.askopenfilename(
+            filetypes=[("Excel", "*.xlsx *.xls"), ("CSV Files", "*.csv")]
+        )
         if path:
             self.path_inter = path
             self.lbl_inter.configure(text=os.path.basename(path), text_color="white")
 
     def load_local(self):
-        path = filedialog.askopenfilename(filetypes=[("Excel", "*.xlsx *.xls")])
+        path = filedialog.askopenfilename(
+            filetypes=[("Excel", "*.xlsx *.xls"), ("CSV Files", "*.csv")]
+        )
         if path:
             self.path_local = path
             self.lbl_local.configure(text=os.path.basename(path), text_color="white")
