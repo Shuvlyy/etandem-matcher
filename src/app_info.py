@@ -1,3 +1,3 @@
 APP_NAME = "E-Tandem Matcher"
-APP_VERSION = "1.1"
+APP_VERSION = "1.1.1"
 APP_COPYRIGHT = "© 2026 Lysandre BOURSETTE"
