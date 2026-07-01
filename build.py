@@ -3,7 +3,14 @@ import subprocess
 import src.app_info
 
 app_ver = src.app_info.APP_VERSION.split(".")
-filevers = (int(app_ver[0]), int(app_ver[1]), 0, 0)
+app_ver_major = int(app_ver[0])
+app_ver_minor = int(app_ver[1])
+app_ver_patch = 0
+if len(app_ver) > 2:
+    app_ver_patch = int(app_ver[2])
+filevers = (app_ver_major, app_ver_minor, app_ver_patch, 0)
+
+print(filevers)
 
 win_verinfo = f"""VSVersionInfo(ffi=FixedFileInfo(filevers={filevers},prodvers={filevers},mask=0x3f,flags=0x0,OS=0x4,fileType=0x1,subtype=0x0,date=(0,0)),kids=[StringFileInfo([StringTable('040904b0',[StringStruct('FileVersion','{src.app_info.APP_VERSION}'),StringStruct('ProductVersion','{src.app_info.APP_VERSION}'),StringStruct('ProductName','{src.app_info.APP_NAME}')])])])"""
 
